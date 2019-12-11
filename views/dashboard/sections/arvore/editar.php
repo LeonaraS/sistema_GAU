@@ -1,0 +1,241 @@
+<?php 
+
+require './../requires/require.php';
+
+if (isset($_POST["Salvar"]) && $_POST["Salvar"] === "Salvar") {
+	try {
+		$arvore = new Arvore($_POST["idarvore"]);
+		$arvore->setAreaverdeIdareaverde($_POST['areaverde_idareaverde']);
+		$arvore->setFuncionarioIdfuncionario($_POST['funcionario_idfuncionario']);
+		$arvore->setMatriz($_POST['matriz']);	
+		$arvore->setAltura($_POST['altura']);	
+		$arvore->setLargura($_POST['largura']);	
+		$arvore->setDataPoda($_POST['data_poda']);	
+		$arvore->setEliminacao($_POST['eliminacao']);	
+		$arvore->setFitossanidade($_POST['fitossanidade']);	
+		$arvore->setObservacao($_POST['observacao']);		
+		$arvore->atualizar();	
+	} catch (Exception $e) {
+		echo 'ERRO: ' . $e->getMessage();
+	}
+	
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="./../../../../node_modules/mdbootstrap/css/mdb.min.css">
+
+    <!--  Css -->
+    <link rel="stylesheet" href="./../../../../assets/css/painel.css">
+
+    <title>Painel</title>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <a class="sidebar-toggle text-light mr-3">
+            <span class="navbar-toggler-icon"></span>
+        </a>
+        <a class="navbar-brand" href="#">GAU</a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle menu-header" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown">
+                       <span
+                            class="d-none d-sm-inline">Usuário</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./../../logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="d-flex">
+        <nav class="sidebar">
+            <ul class="list-unstyled">
+                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li>
+                    <a href="#submenu1" data-toggle="collapse"><i class="fas fa-plus"></i> Adicionar</a>
+                    <ul id="submenu1" class="list-unstyled collapse">
+                        <li><a href="./../areaverde/adicionar.php">Área Verde</a>
+                        <li><a href="./adicionar.php">Árvore</a></li>
+                        <li><a href="./../bairro/adicionar.php">Bairro</a></li>
+                        <li><a href="./../cargo/adicionar.php">Cargo</a></li>
+                        <!-- <li><a href="./../cidadao/adicionar.php">Cidadão</a></li> -->
+                        <li><a href="./../funcionario/adicionar.php">Funcionário</a></li>
+                        <li><a href="./../infracao/adicionar.php">Infração</a></li>
+                        <li><a href="./../muda/adicionar.php">Muda</a></li>
+                        <li><a href="./../projeto/adicionar.php">Projeto</a></li>
+                        <!-- <li><a href="./../requerimento/adicionar.php">Requerimento</a></li> -->
+                        <li><a href="./../tipo_areaverde/adicionar.php">Tipo de Área Verde</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu2" data-toggle="collapse"><i class="fas fa-list-ul"></i> Listar</a>
+                    <ul id="submenu2" class="list-unstyled collapse">
+                        <li><a href="./../areaverde/listar.php">Área Verde</a></li>
+                        <li><a href="./listar.php">Árvore</a></li>
+                        <li><a href="./../bairro/listar.php">Bairro</a></li>
+                        <li><a href="./../cargo/listar.php">Cargo</a></li>
+                        <li><a href="./../cidadao/listar.php">Cidadão</a></li>
+                        <li><a href="./../funcionario/listar.php">Funcionário</a></li>
+                        <li><a href="./../infracao/listar.php">Infração</a></li>
+                        <li><a href="./../muda/listar.php">Muda</a></li>
+                        <li><a href="./../projeto/listar.php">Projeto</a></li>
+                        <li><a href="./../requerimento/listar.php">Requerimento</a></li>
+                        <li><a href="./../tipo_areaverde/listar.php">Tipo de Área Verde</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu3" data-toggle="collapse"><i class="fas fa-list-ul"></i> Relatorios</a>
+                    <ul id="submenu3" class="list-unstyled collapse">
+                    <li>
+                            <a target="_blank" href="./../../relatorios/arvores-do-municipio.php">Arvores municipio </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="./../../relatorios/arvores-por-bairro.php">Arvores bairro</a>
+                        </li>
+                        <!-- <li><a href="?modulo=arvore&acao=listar">Árvore</a></li>
+                        <li><a href="?modulo=bairro&acao=listar">Bairro</a></li>
+                        <li><a href="?modulo=cargo&acao=listar">Cargo</a></li>
+                        <li><a href="?modulo=cidadao&acao=listar">Cidadão</a></li>
+                        <li><a href="?modulo=funcionario&acao=listar">Funcionário</a></li>
+                        <li><a href="?modulo=infracao&acao=listar">Infração</a></li>
+                        <li><a href="?modulo=muda&acao=listar">Muda</a></li>
+                        <li><a href="?modulo=projeto&acao=listar">Projeto</a></li>
+                        <li><a href="?modulo=requerimento&acao=listar">Requerimento</a></li>
+                        <li><a href="?modulo=tipo_areaverde&acao=listar">Tipo de Área Verde</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+<?php
+if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
+	
+	$arvore = new Arvore($_GET["id"]);
+
+?>
+
+
+
+<form action="" method="post" accept-charset="utf-8" onsubmit="">
+	<input type="hidden" name="idarvore" value="<?php echo $arvore->getIdarvore();?>" placeholder="">
+	Área verde:
+	<select name="areaverde_idareaverde" class="" value="">	    
+	    <?php 
+	    	 $areasverdes = AreaVerde::listar();
+	    	 foreach ($areasverdes as $areaverde) { ?>	
+	    	 <option  name="areaverde_idareaverde" value="<?php echo $areaverde->getIdareaverde();?>"><?php echo $areaverde->getIdareaverde()?></option> 	     
+	    <?php } ?> 		
+	    <option name="areaverde_idareaverde" value="1" >Area Verde 1</option> 	   
+	    <option name="areaverde_idareaverde" value="2" >Area Verde 2</option> 	   
+	    <option name="areaverde_idareaverde" value="3" >Area Verde 3</option> 	   
+    </select> <br>
+    Funcionário que cadastrou:
+	<select name="funcionario_idfuncionario" class="" value="">	    	
+	    <?php 
+	    	 $funcionarios = Funcionario::listar();
+	    	 foreach ($funcionarios as $funcionario) {?>	
+	    	 <option  name="funcionario_idfuncionario" value="<?php echo $funcionario->getIdfuncionario();?>"><?php echo $funcionario->getNome()?></option>  
+	    <?php } ?>
+	    <option name="funcionario_idfuncionario" value="1" >Funcionário 1</option> 	   
+	    <option name="funcionario_idfuncionario" value="2" >Funcionário 2</option> 	   
+	    <option name="funcionario_idfuncionario" value="3" >Funcionário 3</option> 	   
+    </select> <br>
+    Matriz: 
+    Sim<input class="" type="radio" name="matriz" value="s">  
+    Não<input class="" type="radio" name="matriz" value="n"> <br>
+
+    Altura:
+    <input type="number" name="altura" step=".01" value="<?php echo $arvore->getAltura();?>" > <br>
+	
+	Largura:
+    <input type="number" name="largura"  step=".01" value="<?php echo $arvore->getLargura();?>" > <br>
+	
+	Data última poda:
+    <input type="date" name="data_poda" value="<?php echo $arvore->getDataPoda();?>"> <br>
+	
+	Eliminacao: 
+    Sim<input class="" type="radio" name="eliminacao" value="s">  
+    Não<input class="" type="radio" name="eliminacao" value="n" checked><br>
+
+    Fitossanidade:
+    <textarea name="fitossanidade" value="<?php echo $arvore->getFitossanidade();?>"> <?php echo $arvore->getFitossanidade()  ?></textarea><br>
+
+	Observações:
+    <textarea name="observacao" value="<?php echo $arvore->getObservacao();?>"> <?php echo $arvore->getObservacao() ?></textarea><br>
+
+	<input type="submit" name="Salvar" value="Salvar">	
+	<input type="reset" name="Limpar" value="Limpar">	
+	
+</form>
+<?php  
+}
+?>
+
+
+
+
+
+        <!-- JQuery MDB -->
+        <script type="text/javascript" src="./../../../../node_modules/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+
+        <!-- MDB   -->
+        <script type="text/javascript" src="./../../../../node_modules/mdbootstrap/js/popper.min.js"></script>
+
+        <!-- Bootstrap  -->
+        <script type="text/javascript" src="./../../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- MDB  -->
+        <script type="text/javascript" src="./../../../../node_modules/mdbootstrap/js/mdb.min.js"></script>
+
+        <script src="./../../../../node_modules/jquery/dist/jquery.min.js"></script>
+
+        <script src="./../../../../"></script>
+
+        <!-- JAVASCRIPT -->
+        <script>
+        $(document).ready(function() {
+            //Apresentar ou ocultar o menu
+            $('.sidebar-toggle').on('click', function() {
+                $('.sidebar').toggleClass('toggled');
+            });
+
+            //carregar aberto o submenu
+            var active = $('.sidebar .active');
+            if (active.length && active.parent('.collapse').length) {
+                var parent = active.parent('.collapse');
+
+                parent.prev('a').attr('aria-expanded', true);
+                parent.addClass('show');
+            }
+        });
+        </script>
+
+</body>
+
+</html>

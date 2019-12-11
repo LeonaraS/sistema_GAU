@@ -1,0 +1,185 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.menu{background-color: #00695c;  } 
+
+.btn-header{background-color: #00897b ;}
+
+.gau 
+{
+    font-size: 30px!important;    
+}
+
+
+#intro
+{
+     background-image: url( '../img/hh.jpg' );
+      width: 100%;  
+      height: 800px;
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center ;
+      background-attachment: fixed ;
+      -webkit-transition: all 0.2 ease;
+      transition: all 0.2 ease;
+}
+
+.img-01{ width: 200px !important;height: 200px !important;}
+
+.text-destaque
+{
+    color: #878d2e!important;
+}
+
+.text-text{color: #FF9000!important;}
+
+.scrollspy{
+    position: relative;
+    overflow: auto;
+    height: 500px;
+}
+
+p{text-indent: 50px; text-align: justify; font-size: 19px;}
+
+.font-size{font-size: 19px;}
+
+#img-scroll
+{
+    background-color: rgba(233, 233, 233, 0.562);
+    width: 100%;
+    height: 700px;
+}
+
+
+.tamanho-imagem-quemSomos
+{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.color-01
+{
+    background-color: #fafafa;
+}
+
+.margin
+{
+    margin-top: 100px;
+}
+
+#img-blog
+{
+    background-image: url( '../img/bg.jpg' );
+     width: 100%;  
+     height: 800px;
+     background-size: cover; 
+     background-repeat: no-repeat; 
+     background-position: center center ;
+     background-attachment: fixed ;
+     -webkit-transition: all 0.2 ease;
+     transition: all 0.2 ease;
+
+}
+
+.blog-nav
+{
+    background-color: rgba(12, 12, 12, 0.678);
+}
+
+.alert-color
+{
+    background-color: #da7415b4;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.alert-color2
+{
+    background-color: #2dec83c0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.font_
+{
+    font-size: 25px;
+    font-weight: 100;
+}
+
+/* Footer */
+
+.tamanho 
+{
+    width: 100%;
+    height: 200px;
+    background-color: #00695c;
+}
+
+/* login */
+.height
+{
+    height: 720px;
+}
+
+.size_img_login
+{
+    padding: 10px;
+    width: 200px;
+}
+.btn_color_login
+{
+    background-color: #009045;
+}
+
+.img_login_back
+{
+    background-image: url('./../img/Sem título-1.png');
+    width: 100%;
+    height: 721px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.sizebtn
+{
+    width: 100%!important;
+}
+
+#form_login
+{
+    color: #fff;
+}
+/* Cadastro */
+
+.img_cadastro
+{
+      background-image: url('./../img/formas.jpg');
+    width: 100%;
+    height: 721px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+/* Painel Administrador */
+/* Only for snippet */
+.double-nav .breadcrumb-dn {
+    color: #fff;
+  }
+
+  .Resultado
+  {
+      color: rgb(194, 74, 74)
+  }
